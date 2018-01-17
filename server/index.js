@@ -60,7 +60,7 @@ passport.use( new Auth0Strategy(
             const {sub, name, gender, locale}= profile._json
             console.log(profile._json)
             app.get( 'db' )
-            .createUserByAuthid({id: sub, name: name, gender: gender, locale: locale })
+            .createUserByAuthid([ sub,  name, gender, locale ])
             .then(created => {
                 console.log(created)
               return done(null, created[0]);
@@ -70,6 +70,8 @@ passport.use( new Auth0Strategy(
             return done(null, response[0]);
         }
       });
+
+
     }
   )
 );

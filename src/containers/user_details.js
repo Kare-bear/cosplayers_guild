@@ -10,7 +10,7 @@ class UserDetail extends Component {
         }
         return (
             <div>
-                <img src={this.props.user.image_url} />
+                {/* <img src={this.props.user.image_url} /> */}
                 <h1>{this.props.user.username}</h1>
                 <h2>{this.props.user.name}</h2>
                 <h3>Age: {this.props.user.age}</h3>
