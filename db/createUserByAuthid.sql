@@ -1,1 +1,2 @@
-INSERT INTO users (authid, name, gender, locale) VALUES (${id}, ${name}, ${gender}, ${locale}) RETURNING *;
+INSERT INTO users (authid, name, gender, locale) VALUES ($1, $2, $3, $4);
+SELECT * FROM users WHERE authid = $1;

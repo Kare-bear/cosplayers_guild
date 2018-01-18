@@ -49,9 +49,7 @@ passport.use( new Auth0Strategy(
     callbackURL: '/auth',
     scope: "openid profile"
     }, 
-    ( accessToken, refreshToken, extraParams, profile, done ) => {
-        
-
+    ( accessToken, refreshToken, extraParams, profile, done ) => {      
     app.get( 'db' )
     .getUserByAuthid(profile.id)
     .then(response => {
@@ -62,7 +60,7 @@ passport.use( new Auth0Strategy(
             app.get( 'db' )
             .createUserByAuthid([ sub,  name, gender, locale ])
             .then(created => {
-                console.log(created)
+                console.log("works", created)
               return done(null, created[0]);
             });
         }else{
@@ -81,7 +79,7 @@ passport.deserializeUser((user, done) => done(null, user));
 
 
 app.get('/auth', passport.authenticate("auth0", {
-    successRedirect: "http://localhost:3000/",
+    successRedirect: "http://localhost:3000/choose",
     failureRedirect: "http://localhost3000/login"
     })
  );
@@ -105,7 +103,7 @@ app.get("/api/test", ( req, res ) => {
 app.put("/api/name", (req, res)=> {
     const db = req.app.get('db');
 
-    db.updateUser([req.body.id, req.body.name, req.body.age, req.body.gender, req.body.bio, req.body.locale])
+    db.updateUser([req.body.id, req.body.username])
     .then(response => res.json(response[0]))
     .catch(console.log);
 });

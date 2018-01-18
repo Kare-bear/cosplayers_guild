@@ -4,6 +4,18 @@ const RETRIEVE_USER = "RETRIEVE_USER";
 const UPDATE_USER = "UPDATE_USER";
 
 
+
+export function updateUser(username, id){
+    return{
+        type: UPDATE_USER,
+        payload: axios
+        .put('/api/name', { username, id })
+        .then(response => response.data)
+        .catch(console.log)
+    };
+}
+
+
 export function retrieveUser(){
     console.log("hello")
     return {
@@ -12,16 +24,6 @@ export function retrieveUser(){
             .get("/api/me")
             .then(response => response.data)
             .catch(console.log)
-    };
-}
-
-export function updateUser(name, id){
-    return{
-        type: UPDATE_USER,
-        payload: axios
-        .put('/api/name', { name, id })
-        .then(response => response.data)
-        .catch(console.log)
     };
 }
 
@@ -47,6 +49,11 @@ export default function user( state = initialState, action){
             return Object.assign( {}, state, {
                 isLoading: false,
                 didError: true
+            });
+
+        case `${UPDATE_USER}_FULFILLED`:
+            return Object.assign( {}, state, {
+                user:action.payload
             });
 
 
