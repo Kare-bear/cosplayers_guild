@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./choose.css";
+import {connect} from 'react-redux';
 
-export default class Choose extends Component {
+import { retrieveUser, userExists } from "../../reducers/user";
+
+
+class Choose extends Component {
     constructor(props){
         super(props);
 
@@ -12,11 +17,13 @@ export default class Choose extends Component {
 
 componentDidMount(){
     console.log(process.env);
+    this.props.retrieveUser();
+    this.props.userExists();
 }
 
     render(){
       return(
-        <div>
+        <div className="Main-Choose">
             <h1>CHOOSE YOUR CLASS</h1>
 
             <div>Are you the creative type or do you prefer to purchase your look?</div>
@@ -42,10 +49,12 @@ componentDidMount(){
                 </div>
                 <div>As a User you have access to all the main features of [unnamed site], minus the Creator extra features.</div>
 
-                <Link to="/User">
+                <Link to="/UserProfile">
                 <button className = "Choose-User">USER</button>
                 </Link>
         </div>
       );
    }
 }
+const mapStateToProps = state => state;
+export default connect(mapStateToProps,{retrieveUser, userExists})(Choose);

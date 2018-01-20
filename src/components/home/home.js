@@ -2,38 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import coverImg from './heroes_cover.jpg';
-// import "./home.css";
+import "./home.css";
 
-// import { retrieveUser, updateUser } from "../../reducers/user";
 
 class Home extends Component {
-    // constructor(props){
-    //     super(props);
-
-        
-    //     this.state = {
-            
-    //     };
-
-        
-    // }
-
-    // componentDidMount(){
-    //     this.props.retrieveUser();
-    // }
-
-
-    // handleChange(val){
-    //     this.setState({ textInput: val })
-    // }
-
-   
-    // handleSubmit(){
-    //     this.props.updateUser(this.state.textInput, this.props.user.authid);
-    // }
-
+    
     render(){
-        console.log(this.props)
       return(
         <div className = "Home">
             <div>
@@ -58,16 +32,6 @@ class Home extends Component {
                 <img src={coverImg} className="CoverImg" alt="cover" />
                 </a>
             </div>
-            {this.props.isLoading && (
-                <div>
-                    <h1>Loading Content...</h1>
-                </div>
-            )}
-            {this.props.user && (
-                <div>
-                { this.props.user.name }
-                </div>
-            )}
         </div>            
       );   
    }

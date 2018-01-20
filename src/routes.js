@@ -7,11 +7,10 @@ import Contact from "./components/contact/contact";
 // import Login from "./components/Login/Login";
 // import Creator from "./components/Creator/Creator";
 import Choose from "./components/choose/choose";
-// import User from "./components/User/User";
 import CreatorProfile from "./components/creator_profile/creator_profile";
-// import ProfileUser from "./components/ProfileUser/ProfileUser";
-// import ActiveCreator from "./components/active_creator/active_creator";
-
+import UserProfile from "./components/user_profile/user_profile";
+import ActiveCreator from "./components/active_creator/active_creator";
+import ActiveUser from "./components/active_user/active_user";
 
 export default(
     <Switch>
@@ -19,11 +18,11 @@ export default(
         {/* <Route path = "/login" component = { Login } />
         <Route path = "/creator" component = { Creator } /> */}
         <Route path = "/choose" component = { Choose } />
-        {/* <Route path = "/user" component = { User } /> */}
         <Route path = "/creatorProfile" component = { CreatorProfile } />
-        {/* <Route path = "/profileUser" component = { ProfileUser } /> */}
+        <Route path = "/userProfile" component = { UserProfile } />
         <Route path = "/about" component = { About } />
         <Route path = "/contact" component = { Contact } />
-        {/* <Route path = "/activeCreator" component = { ActiveCreator } /> */}
+        <Route path = "/ActiveCreator" component = { ActiveCreator } />
+        <Route path = "/ActiveUser" component = { ActiveUser } />
     </Switch>
 );

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./contact.css"
 
 export default class Contact extends Component {
     constructor(props){
@@ -15,7 +16,7 @@ componentDidMount(){
 
     render(){
       return(
-        <div>
+        <div className="Main-Contact">
             <h1>this is the contact page</h1>
         </div>
       );

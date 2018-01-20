@@ -2,14 +2,14 @@ import axios from "axios";
 
 const RETRIEVE_USER = "RETRIEVE_USER";
 const UPDATE_USER = "UPDATE_USER";
-
+const USER_EXISTS = "USER_EXISTS";
 
 
 export function updateUser(username, id){
     return{
         type: UPDATE_USER,
         payload: axios
-        .put('/api/name', { username, id })
+        .post('/api/name', { username, id })
         .then(response => response.data)
         .catch(console.log)
     };
@@ -21,8 +21,19 @@ export function retrieveUser(){
     return {
         type: RETRIEVE_USER,
         payload: axios
-            .get("/api/me")
+            .get("http://localhost:3001/api/me")
             .then(response => response.data)
+            .catch(console.log)
+    };
+}
+
+export function userExists(){
+    console.log("exists")
+    return {
+        type: USER_EXISTS,
+        payload: axios
+            .get("/api/exists")
+            .then(response => response.users.data)
             .catch(console.log)
     };
 }
@@ -40,6 +51,7 @@ export default function user( state = initialState, action){
             return Object.assign( {}, state, { isLoading: true });
 
         case `${ RETRIEVE_USER}_FULFILLED`:
+        console.log(action.payload)
             return Object.assign( {}, state, {
                 isLoading: false,
                 user: action.payload
@@ -55,6 +67,11 @@ export default function user( state = initialState, action){
             return Object.assign( {}, state, {
                 user:action.payload
             });
+
+        case `${USER_EXISTS}_FULFILLED`:
+            return Object.assign( {}, state, {
+                user:action.payload
+            });    
 
 
 

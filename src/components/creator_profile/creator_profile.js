@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import "./creator_profile.css";
 
 // import "./ProfileCreator.css";
 import { retrieveUser, updateUser } from "../../reducers/user";
@@ -25,23 +26,24 @@ handleChange(val){
 }
 
 handleSubmit(){
+    
     this.props.updateUser(this.state.textInput);
 }
-//, this.props.user.authid >>>add back into handleSubmit
+
     render(){
       return(
-        <div>
+        <div className="Main-Creator">
             <h1>You are a creator</h1>
             <div>Fill in the required information</div>
             
             
-            <div>UserName</div>
+            {/* <div>UserName</div>
             <input type = "text" onChange = {e => this.handleChange(e.target.value)} />
-           
+            */}
             <div>Name</div>
-            <input type = "text" onChange = {e => this.handleChange(e.target.value)}/>
+            <input type="text" onChange={e => this.handleChange(e.target.value)}/>
 
-            <div>Age</div>
+            {/* <div>Age</div>
             <input type = "text" onChange = {e => this.handleChange(e.target.value)}/>
 
             <div>Gender</div>
@@ -53,11 +55,11 @@ handleSubmit(){
             <div>Upload Profile Picture</div>
 
             <div>Location</div>
-            <input type = "text" /><br/>
-            <Link to = "/active_creator">
-            <button>Submit</button>
+            <input type = "text" /><br/> */}
+            <Link to="/ActiveCreator">
+            <button onClick={this.handleSubmit}>Submit</button>
             </Link>
-         {/* onClick = {this.handleSubmit} add back to submit button */}
+         
         </div>
       );
    }

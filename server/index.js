@@ -100,10 +100,19 @@ app.get("/api/test", ( req, res ) => {
     .catch(console.log);
 });
 
-app.put("/api/name", (req, res)=> {
-    const db = req.app.get('db');
+app.get("/api/exists", (req, res, next)=>{
+    const db=req.app.get('db');
+    console.log("user ID", req.user.id)
+    db.userExists([req.user.id])
+    .then(response=> console.log(response.data, "look here"))
+    .catch(console.log);
+});
 
-    db.updateUser([req.body.id, req.body.username])
+app.post("/api/name", (req, res)=> {
+    const db = req.app.get('db');
+    console.log(req.user)
+
+    db.updateUser([req.user.id, req.body.username])
     .then(response => res.json(response[0]))
     .catch(console.log);
 });

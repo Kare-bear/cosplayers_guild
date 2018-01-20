@@ -14,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <Link to = "/">
@@ -43,6 +44,7 @@ class App extends Component {
     </div>
       </div> */}
       {routes}
+      
       </div>
     );
   }
