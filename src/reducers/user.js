@@ -33,7 +33,7 @@ export function userExists(){
         type: USER_EXISTS,
         payload: axios
             .get("/api/exists")
-            .then(response => response.users.data)
+            .then(resp=>resp.data[0])
             .catch(console.log)
     };
 }
@@ -46,6 +46,7 @@ const initialState = {
 };
 
 export default function user( state = initialState, action){
+    console.log('action:', action)
     switch( action.type ){
         case `${ RETRIEVE_USER}_PENDING`:
             return Object.assign( {}, state, { isLoading: true });

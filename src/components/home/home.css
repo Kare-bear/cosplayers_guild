@@ -1,3 +1,77 @@
 .Home{
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Bangers', cursive;
+    }
+
+.Home-lead{
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	}
+
+.CoverImg{
+    width:100%;
+}   
+
+.Button-Choose{
+    position: absolute;
+    top: 40%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -webkit-border-radius: 25;
+    -moz-border-radius: 25;
+    border-radius: 25px;
+    -webkit-box-shadow: 4px 4px 8px #ff0000;
+    -moz-box-shadow: 4px 4px 8px #ff0000;
+    box-shadow: 4px 4px 8px #ff0000;
+    font-family: Arial;
+    color: gold;
+    font-size: 18px;
+    padding: 18px;
+    background: #e80505;
+    border: solid #ff0303 2px;
+    text-decoration: none;
+    font-family: 'Bangers', cursive;
+}
+
+.Button-Login{
+    position: absolute;
+    top: 30%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -webkit-border-radius: 25;
+    -moz-border-radius: 25;
+    border-radius: 25px;
+    -webkit-box-shadow: 4px 4px 8px #ff0000;
+    -moz-box-shadow: 4px 4px 8px #ff0000;
+    box-shadow: 4px 4px 8px #ff0000;
+    font-family: Arial;
+    color: gold;
+    font-size: 18px;
+    padding: 24px;
+    background: #e80505;
+    border: solid #ff0303 2px;
+    text-decoration: none;
+    font-family: 'Bangers', cursive;
+}
+
+.Home-title{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:gold;
+    text-shadow: 2px 2px 5px red;
+    font-size: 65px;
+}
+
+.Home-intro{
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:gold;
+    text-shadow: 2px 2px 5px red;
+    font-size: 33px;
+
 }

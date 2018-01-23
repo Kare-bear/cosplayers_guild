@@ -1,0 +1,45 @@
+.About{
+    font-family: 'Bangers', cursive;
+    }
+
+.About-lead{
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.backImg{
+    width:100vw
+}
+
+.About-title{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:gold;
+    text-shadow: 2px 2px 5px red;
+    font-size: 42px;
+}
+
+
+.About-intro{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:gold;
+    text-shadow: 2px 2px 5px red;
+    font-size: 28px;
+}
+
+.About-welcome{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:gold;
+    text-shadow: 2px 2px 5px red;
+    font-size: 35px;
+}

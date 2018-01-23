@@ -11,6 +11,7 @@ import CreatorProfile from "./components/creator_profile/creator_profile";
 import UserProfile from "./components/user_profile/user_profile";
 import ActiveCreator from "./components/active_creator/active_creator";
 import ActiveUser from "./components/active_user/active_user";
+// import BackgroundImage from "./components/BackgroundImage/BackgroundImage";
 
 export default(
     <Switch>
@@ -24,5 +25,6 @@ export default(
         <Route path = "/contact" component = { Contact } />
         <Route path = "/ActiveCreator" component = { ActiveCreator } />
         <Route path = "/ActiveUser" component = { ActiveUser } />
+        {/* <Route path = "/BackgroundImage" component = { BackgroundImage } /> */}
     </Switch>
 );

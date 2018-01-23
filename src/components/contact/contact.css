@@ -1,3 +1,48 @@
-.Main-Contact{
-    font-family: 'Roboto', sans-serif;
+.Contact{
+    font-family: 'Bangers', cursive;
+    background-color: black;
+}
+
+.contactImg{
+    width:100vw
+}
+
+.Contact-title{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:gold;
+    text-shadow: 2px 2px 5px red;
+    font-size: 42px;
+}
+
+.Contact-intro{
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:gold;
+    text-shadow: 2px 2px 5px red;
+    font-size: 28px;
+}
+
+.Contact-email{
+    position: absolute;
+    top: 78%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:gold;
+    text-shadow: 2px 2px 5px red;
+    font-size: 35px;
+}
+
+.Contact-facebook{
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:gold;
+    text-shadow: 2px 2px 5px red;
+    font-size: 35px;
 }

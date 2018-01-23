@@ -64,7 +64,6 @@ passport.use( new Auth0Strategy(
               return done(null, created[0]);
             });
         }else{
-            console.log("work!!!")
             return done(null, response[0]);
         }
       });
@@ -104,7 +103,7 @@ app.get("/api/exists", (req, res, next)=>{
     const db=req.app.get('db');
     console.log("user ID", req.user.id)
     db.userExists([req.user.id])
-    .then(response=> console.log(response.data, "look here"))
+    .then(response=> res.json(response))
     .catch(console.log);
 });
 

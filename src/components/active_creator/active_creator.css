@@ -1,3 +1,22 @@
 .main-creator{
- font-family: 'Roboto', sans-serif;
+	font-family: 'Bangers', cursive;
 }
+
+.creator-avatar{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: baseline;
+	align-content: flex-start;
+}
+
+.creator-info{
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: flex-start;
+}
+
