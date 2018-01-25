@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import coverImg from './heroes_standing.jpg';
 
 
@@ -37,6 +35,6 @@ class Home extends Component {
 }
 
 
-const mapStateToProps = state => state;
 
-export default connect(mapStateToProps)( Home );
+
+export default Home;

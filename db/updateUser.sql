@@ -1,1 +1,1 @@
-UPDATE users Set name = $2 WHERE id = $1 RETURNING id, name;
+UPDATE users Set username = $2, name = $3, age = $4, bio = $5, image_url = $6, gender = $7, locale = $8 WHERE id = $1 RETURNING *;

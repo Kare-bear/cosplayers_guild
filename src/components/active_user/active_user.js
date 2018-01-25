@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
-import {connect} from 'react-redux';
+import { Link } from "react-router-dom";
 
 
 
@@ -18,5 +17,5 @@ class ActiveUser extends Component {
     }
 }
 
-const mapStateToProps = state => state;
-export default connect(mapStateToProps)(ActiveUser);
+
+export default ActiveUser;

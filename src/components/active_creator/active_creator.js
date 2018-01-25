@@ -1,15 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import {connect} from 'react-redux';
+import axios from "axios";
 import './active_creator.css';
 
-import { retrieveUser, updateUser } from "../../reducers/user";
-
 import Avatar from 'material-ui/Avatar';
-import FileFolder from 'material-ui/svg-icons/file/folder';
-import FontIcon from 'material-ui/FontIcon';
 import UploadPreview from 'material-ui-upload/UploadPreview';
-import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem'; 
 import Divider from 'material-ui/Divider';
 import Paper from 'material-ui/Paper';
@@ -22,16 +17,65 @@ class ActiveCreator extends Component {
       constructor() {
         super();
         this.state = {
-            pictures: {},
+            Image_url:"",
             username: "",
             name: "",
             age: null,
             gender: "",
             bio: "",
-            location: ""
+            locale: "",
+            pictures: {}
         };
+
+        this.handleImage_urlActive = this.handleImage_urlActive.bind(this);
+        this.handleUsername_Active = this.handleUsername_Active.bind(this);
+        this.handleName_Active = this.handleName_Active.bind(this);
+        this.handleAge_Active = this.handleAge_Active.bind(this);
+        this.handleGender_Active = this.handleGender_Active.bind(this);
+        this.handleBio_Active = this.handleBio_Active.bind(this);
+        this.handleLocale_Active = this.handleLocale_Active.bind(this);
+        this.handlePictures_Active = this.handlePictures_Active.bind(this);
 }
 
+componentDidMount(){
+    //axios.get
+    axios
+    .get("/api/profile")
+    .then(response => this.setState({age:response.data[0].age, image_url:response.data[0].image_url, username: response.data[0].username, name: response.data[0].name, gender:response.data[0].gender, bio:response.data[0].bio, locale: response.data[0].locale, pictures: response.data[0].pictures}))
+    .catch(console.log)
+}
+
+handleImage_urlActive(e){
+    this.setState({Image_url: e.target.value})
+}
+
+handleUsername_Active(e){
+    this.setState({username: e.target.value})
+}
+
+handleName_Active(e){
+    this.setState({name: e.target.value})
+}
+
+handleAge_Active(e){
+    this.setState({age: e.target.value})
+}
+
+handleGender_Active(e){
+    this.setState({gender: e.target.value})
+}
+
+handleBio_Active(e){
+    this.setState({bio: e.target.value})
+}
+
+handleLocale_Active(e){
+    this.setState({locle: e.target.value})
+}
+
+handlePictures_Active(e){
+    this.setState({pictures: e.target.value})
+}
 
 
 onChange = (pictures) => this.setState({pictures});
@@ -41,32 +85,35 @@ onChange = (pictures) => this.setState({pictures});
         return (
             <div className="main-creator">
                 <div>
-                <div className="creator-avatar">
+                <div>Creator</div>
+                <div className="creator-avatar">                
                    <h4>Profile Picture:</h4>
                    <ListItem
                       disabled={true}
                       leftAvatar={
                         <Avatar
-                          src={'https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-1/p160x160/26993226_10208694059148973_5941558674841063159_n.jpg?oh=d323a46f0bd969004e02d4796707c9ef&oe=5ADEDC25'}
+                          src={''}
                           size={200}
                           style={style}
                         />
                       }
                     /> 
                 </div> 
+            {/* remove material ui text fields first!!!! */}
                 <div className="creator-info">
                     <Paper zDepth={2} className="paper">
-                    <TextField defaultValue="Kare-Bear" style={style} underlineShow={false} />
+                    <TextField defaultValue={this.state.username} style={style} underlineShow={false} />
+                    <h1 style={{fontSize: 100}}>{this.state.username}</h1>
                     <Divider />
-                    <TextField defaultValue="Kara Rainey" style={style} underlineShow={false} />
+                    <TextField defaultValue="" style={style} underlineShow={false} />
                     <Divider />
-                    <TextField defaultValue="35" style={style} underlineShow={false} />
+                    <TextField defaultValue="" style={style} underlineShow={false} />
                     <Divider />
-                    <TextField defaultValue="Female" style={style} underlineShow={false} />
+                    <TextField defaultValue="" style={style} underlineShow={false} />
                     <Divider />
-                    <TextField defaultValue="This is my amazing bio! Wow!!!" style={style} underlineShow={false} />
+                    <TextField defaultValue="" style={style} underlineShow={false} />
                     <Divider />
-                    <TextField defaultValue="Dallas, Tx" style={style} underlineShow={false} />
+                    <TextField defaultValue="" style={style} underlineShow={false} />
                     <Divider />
                     </Paper>
                 </div>
@@ -87,8 +134,8 @@ onChange = (pictures) => this.setState({pictures});
     }
 }
 
-const mapStateToProps = state => state;
-export default connect(mapStateToProps)(ActiveCreator);
+
+export default ActiveCreator;
 
 
 

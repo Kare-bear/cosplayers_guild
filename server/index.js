@@ -18,14 +18,16 @@ const {
 
 const app = express();
 
+app.use( json() );
+app.use( cors() );
+
 massive( process.env.CONNECTION_STRING )
     .then( db => {
       app.set( "db", db);
 })
     .catch( console.log );
 
-app.use( json() );
-app.use( cors() );
+
 app.use(
     session({
         secret: process.env.SESSION_SECRET,
@@ -53,14 +55,14 @@ passport.use( new Auth0Strategy(
     app.get( 'db' )
     .getUserByAuthid(profile.id)
     .then(response => {
-        console.log(response)
+        
         if(!response[0]){
             const {sub, name, gender, locale}= profile._json
-            console.log(profile._json)
+            
             app.get( 'db' )
             .createUserByAuthid([ sub,  name, gender, locale ])
             .then(created => {
-                console.log("works", created)
+                
               return done(null, created[0]);
             });
         }else{
@@ -83,6 +85,7 @@ app.get('/auth', passport.authenticate("auth0", {
     })
  );
 
+
  app.get('/api/me', (req, res, next) => {
      if(req.user) res.json(req.user);
      else res.redirect("/auth");
@@ -99,22 +102,33 @@ app.get("/api/test", ( req, res ) => {
     .catch(console.log);
 });
 
-app.get("/api/exists", (req, res, next)=>{
-    const db=req.app.get('db');
-    console.log("user ID", req.user.id)
-    db.userExists([req.user.id])
-    .then(response=> res.json(response))
-    .catch(console.log);
-});
-
 app.post("/api/name", (req, res)=> {
     const db = req.app.get('db');
-    console.log(req.user)
+    // console.log(req.body)
+    console.log(req.user, "Itsright here!")
 
-    db.updateUser([req.user.id, req.body.username])
+    const {username, name, age, bio, image_url, gender, locale } = req.body
+
+    db.updateUser([req.user.id, username, name, age, bio, image_url, gender, locale])
     .then(response => res.json(response[0]))
     .catch(console.log);
 });
+
+app.get('/api/profile', (req, res, next) =>{
+    const db = req.app.get("db");
+    console.log(req.user, "here i am!")
+
+    db.getUserByAuthid([req.user.authid])
+    .then(response => {
+        res.json(response);
+    })
+    .catch(console.log)
+})
+
+
+
+
+
 
 app.listen( process.env.PORT || 3001, () => {
     console.log( `App listening on port ${ process.env.PORT || 3001 }!` );

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./choose.css";
-import {connect} from 'react-redux';
 import heroImg from './hero_Collage.jpg'
 
-import { retrieveUser, userExists } from "../../reducers/user";
+
 
 
 class Choose extends Component {
@@ -18,8 +17,7 @@ class Choose extends Component {
 
 componentDidMount(){
     console.log(process.env);
-    // this.props.retrieveUser();
-    this.props.userExists();
+    
 }
 
     componentWillReceiveProps(newProps){
@@ -64,5 +62,5 @@ componentDidMount(){
       );
    }
 }
-const mapStateToProps = state => state;
-export default connect(mapStateToProps,{retrieveUser, userExists})(Choose);
+
+export default Choose;
